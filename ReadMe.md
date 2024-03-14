@@ -4,8 +4,9 @@
 	* 학번 : 202327069
 	* 이름 : 백호영
 * Version
-
+ 
 	* IDE : Visual Studio 2022
 	* Compiler :
 	* Packages
 		* OpenGL
+
