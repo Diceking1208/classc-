@@ -16,8 +16,6 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 	}
 }
 
-
-
 void MouseCallback(GLFWwindow* window, int button, int action, int mods)
 {
 	if (button == GLFW_MOUSE_BUTTON_LEFT)
@@ -48,17 +46,27 @@ void PositionCallback(GLFWwindow* window, double xpos, double ypos)
 {
 	int leftButton = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT);
 	int rightButton = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT);
+	static double prevXpos = xpos;
+	static double prevYpos = ypos;
 
-	if (leftButton == GLFW_PRESS)
+	bool cursorMoved = (prevXpos != xpos || prevYpos != ypos);
+
+	prevXpos = xpos;
+	prevYpos = ypos;
+
+	if (leftButton == GLFW_PRESS && cursorMoved)
 	{
 		glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
 	}
-	else if (rightButton == GLFW_PRESS)
+	else if (rightButton == GLFW_PRESS && cursorMoved)
 	{
-		glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+		glClearColor(0.0f, 0.0f, 1.0f, 1.0f); 
 	}
 }
 
+
+
+	
 int main()
 {
 	GLFWwindow* window;
