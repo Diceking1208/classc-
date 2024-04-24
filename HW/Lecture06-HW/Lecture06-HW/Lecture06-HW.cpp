@@ -71,7 +71,7 @@ int main() {
     }
 
     // 윈도우 생성
-    GLFWwindow* window = glfwCreateWindow(800, 600, "별 랜더링", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(1280, 800, "별 랜더링", NULL, NULL);
     if (!window) {
         glfwTerminate();
         return -1;
@@ -97,7 +97,7 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         // 별 렌더링
-        if (!starsGenerated && stars.size() < 50) {
+        if (!starsGenerated && stars.size() < 5) {
             // 새로운 별 생성
             stars.push_back(Vector2(randomFloat(-1.0f, 1.0f), randomFloat(-1.0f, 1.0f)));
             // 랜덤한 색상 생성
