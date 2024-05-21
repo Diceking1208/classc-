@@ -103,7 +103,7 @@ void drawStar(float x, float y, float size, float rotationAngle, float r, float 
 
 void drawMoon(float x, float y, float size, float rotationAngle)
 {
-    drawStar(x, y, size, rotationAngle, 1.0f, 1.0f, 1.0f);
+    drawStar(x, y, size, rotationAngle, 0.3f, 0.3f, 0.3f);
 }
 
 float sunAngle = 0.0f;
@@ -121,8 +121,24 @@ void render(double deltaTime)
     // 태양의 자전
     sunAngle += (2.0f * M_PI) / sunRotationPeriod * deltaTime;
 
+    // 원의 테두리를 그릴 세그먼트 수
+    int circleSegments = 100;
+
     // 태양 그리기
-    drawCircle(0.0f, 0.0f, 0.3f, 100, 1.0f, 0.65f, 0.0f); // 태양
+    drawCircle(0.0f, 0.0f, 0.3f, circleSegments, 1.0f, 0.65f, 0.0f); // 태양
+
+    // 태양 주위에 원의 테두리 그리기
+    glColor3f(1.0f, 0.55f, 0.0f);
+    glLineWidth(3.0f);
+    glBegin(GL_LINE_LOOP);
+    for (int i = 0; i < circleSegments; ++i)
+    {
+        float angle = 2.0f * M_PI * float(i) / float(circleSegments);
+        float x = 0.3f * cos(angle);
+        float y = 0.3f * sin(angle);
+        glVertex2f(x, y);
+    }
+    glEnd();
 
     // 무늬들 그리기
     float patternRotationSpeed = (2.0f * M_PI) / sunRotationPeriod;
@@ -164,6 +180,7 @@ void render(double deltaTime)
     moonX += earthX; // 지구의 위치를 기준으로 달의 위치 계산
     moonY += earthY;
     drawMoon(moonX, moonY, 0.08f, moonRotationAngle); // 달을 별 모양으로 그리기
+
 }
 
 
@@ -185,6 +202,7 @@ int main(void)
     glViewport(0, 0, 800, 800);
 
     previousTime = glfwGetTime();
+    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
     while (!glfwWindowShouldClose(window))
     {
