@@ -76,7 +76,7 @@ int main(void)
     if (!glfwInit())
         return -1;
 
-    GLFWwindow* window = glfwCreateWindow(1280, 768, "Hmmmm", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(1024, 768, "Hmmmm", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
