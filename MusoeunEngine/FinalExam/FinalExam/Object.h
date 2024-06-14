@@ -23,7 +23,7 @@ public:
         float playerSize = 50.0f / 400.0f; // 플레이어 한 변 길이 (50cm / 800px)
         float halfSize = playerSize / 2.5f;
         float borderWidth = 1.0f / 400.0f; // 테두리 두께 (1cm / 800px)
-        float floorHeight = 100.0f / 300.0f; // 바닥에서 플레이어 높이
+        float floorHeight = 80.0f / 300.0f; // 바닥에서 플레이어 높이
 
         // 플레이어 사각형 그리기
         glBegin(GL_QUADS);
@@ -58,7 +58,7 @@ public:
         float enemyHeight = 80.0f /300.0f; // 세로 길이 (100cm / 600px)
         float halfWidth = enemyWidth / 2.5f;
         float halfHeight = enemyHeight / 2.0f;
-        float floorHeight = 100.0f / 300.0f;
+        float floorHeight = 80.0f / 300.0f;
 
         // 에너미 블록 X 좌표 (플레이어보다 약간 오른쪽)
         float enemyX = 0.3f; // X 좌표 (플레이어의 오른쪽으로 약간 이동)
@@ -79,10 +79,10 @@ public:
         // 두 번째 에너미 블록 X 좌표
         float enemyX2 = 0.6f; // X 좌표 (첫 번째 에너미 블록의 오른쪽으로 약간 이동)
         float enemyWidths = 50.0f / 400.0f; // 가로 길이 (50cm / 400px)
-        float enemyHeights = 200.0f / 300.0f; // 세로 길이 (300cm / 600px)
+        float enemyHeights = 250.0f / 300.0f; // 세로 길이 (300cm / 600px)
         float halfWidths = enemyWidths / 2.5f;
         float halfHeights = enemyHeights / 2.0f;
-        float floorHeight = 100.0f / 300.0f;
+        float floorHeight = 80.0f / 300.0f;
 
         // 두 번째 에너미 블록 사각형 그리기 (바닥 위로 약간 띄우기)
         glBegin(GL_QUADS);
@@ -101,7 +101,7 @@ public:
 
     void Draw() override {
         glColor3f(1.0f, 0.784f, 0.0588f); // 노란색 (RGB: 255, 200, 15)
-        float floorHeight = 100.0f / 300.0f; // 세로 길이 (100cm / 600px)
+        float floorHeight = 80.0f / 300.0f; // 세로 길이 (100cm / 600px)
 
         // 사각형으로 바닥 그리기
         glBegin(GL_QUADS);
